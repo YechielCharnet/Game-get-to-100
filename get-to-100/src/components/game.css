@@ -1,0 +1,65 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.player {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  width: 300px;
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 5px;
+  resize: none;
+}
+
+button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  padding: 8px 12px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+.winner-alert {
+  background-color: #dff0d8;
+  border: 1px solid #d0e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+#Quit {
+  background-color: red;
+}
