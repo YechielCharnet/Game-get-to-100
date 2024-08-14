@@ -1,7 +1,16 @@
 import { useState } from "react";
+import "./game.css";
 
-function Game(props) {
-  const initialPlayers = ["yosi", "moti", "Yechiel", "eliyahu"];
+function Game({ arrPlayers }) {
+  // const initialPlayers = ["yosi", "moti", "Yechiel", "eliyahu"];
+
+  console.log(arrPlayers); //add
+  const initialPlayers = []; //add
+  arrPlayers.forEach((p) => {
+    initialPlayers.push(p.username);
+  }); //add
+  console.log(initialPlayers); //add
+
   const [players, setPlayers] = useState(initialPlayers);
   const [values, setValues] = useState(
     initialPlayers.map(() => Math.floor(Math.random() * 99 + 1))
@@ -109,7 +118,9 @@ function Game(props) {
             >
               split
             </button>
-            <button onClick={Quit} id="Quit">Quit</button>
+            <button onClick={Quit} id="Quit">
+              Quit
+            </button>
           </div>
           {/* <button onClick={() => <Game/>}>start</button> */}
         </div>

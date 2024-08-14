@@ -1,5 +1,6 @@
 import "./registration.css";
 import React, { useState } from "react";
+import Game from "./Game.jsx";
 
 const Registration = () => {
   const [email, setEmail] = useState("");
@@ -9,6 +10,7 @@ const Registration = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [fieldsMessage, setFieldsMessage] = useState("");
   const [colorError, setColorError] = useState("red");
+  const [showGame, setShowGame] = useState(false);
 
   const clearVariables = () => {
     setEmail("");
@@ -48,7 +50,9 @@ const Registration = () => {
     );
     if (existingUser) {
       setColorError("#bebc15");
-      setErrorMessage("Email or username already exist. Please try again.");
+      setErrorMessage(
+        "Email or username already exist. Please try again or login with a correct password."
+      );
     } else {
       const newUser = { email, username, password };
       localStorage.setItem("gameUsers", JSON.stringify([...users, newUser]));
@@ -56,6 +60,10 @@ const Registration = () => {
       clearVariables();
     }
   };
+
+  if (showGame) {
+    return <Game arrPlayers={currentPlayers} />;
+  }
 
   return (
     <div className="container">
@@ -128,7 +136,7 @@ const Registration = () => {
           </button>
         )}
         {currentPlayers.length > 0 && (
-          <button className="btn" /*onClick={<Game name={currentPlayers} />}*/>
+          <button className="btn" onClick={() => setShowGame(true)}>
             Start playing
           </button>
         )}
